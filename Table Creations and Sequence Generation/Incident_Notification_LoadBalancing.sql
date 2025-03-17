@@ -26,7 +26,7 @@ CREATE TABLE IncidentLogs (
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID),
     FOREIGN KEY (ReportedBy) REFERENCES Users(UserID),
     FOREIGN KEY (AssignedTo) REFERENCES Users(UserID)
-);
+); --issue insertion currently
 
 CREATE TABLE IncidentComments (
     CommentID NUMBER PRIMARY KEY,
@@ -37,7 +37,7 @@ CREATE TABLE IncidentComments (
     IsInternal NUMBER(1) DEFAULT 0,  -- Internal notes vs. public comments
     FOREIGN KEY (IncidentID) REFERENCES IncidentLogs(IncidentID),
     FOREIGN KEY (CommentedBy) REFERENCES Users(UserID)
-);
+); -- issue insertion currently
 
 CREATE TABLE IncidentStatusHistory (
     HistoryID NUMBER PRIMARY KEY,
@@ -49,7 +49,7 @@ CREATE TABLE IncidentStatusHistory (
     Comment VARCHAR2(500),
     FOREIGN KEY (IncidentID) REFERENCES IncidentLogs(IncidentID),
     FOREIGN KEY (ChangedBy) REFERENCES Users(UserID)
-);
+); --issue insertion currently
 
 CREATE TABLE NotificationChannels (
     ChannelID NUMBER PRIMARY KEY,
@@ -87,7 +87,7 @@ CREATE TABLE Notifications (
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ChannelID) REFERENCES NotificationChannels(ChannelID),
     FOREIGN KEY (TemplateID) REFERENCES NotificationTemplates(TemplateID)
-);
+); --issue insertion currently
 
 CREATE TABLE LoadBalancingEvents (
     EventID NUMBER PRIMARY KEY,
@@ -110,4 +110,4 @@ CREATE TABLE LoadBalancingDetails (
     StatusAfter VARCHAR2(20),
     FOREIGN KEY (EventID) REFERENCES LoadBalancingEvents(EventID),
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID)
-);
+);--issue insertion currently

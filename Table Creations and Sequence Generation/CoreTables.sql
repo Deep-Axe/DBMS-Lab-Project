@@ -129,7 +129,7 @@ CREATE TABLE ServerMetrics (
     NetworkTraffic NUMBER,
     Timestamp DATE DEFAULT SYSDATE,
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID)
-);
+); --issue insertion currently
 
 CREATE TABLE ServerGroups (
     GroupID NUMBER PRIMARY KEY,
@@ -147,4 +147,4 @@ CREATE TABLE ServerGroupMapping (
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID),
     FOREIGN KEY (GroupID) REFERENCES ServerGroups(GroupID),
     UNIQUE (ServerID, GroupID)
-);
+); --issue insertion currently

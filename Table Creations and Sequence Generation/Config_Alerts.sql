@@ -19,7 +19,7 @@ CREATE TABLE ServerConfigurations (
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID),
     FOREIGN KEY (ConfigID) REFERENCES ConfigurationProfiles(ConfigID),
     FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
-);
+);-- issue inserting currently
 
 CREATE TABLE ConfigurationHistory (
     HistoryID NUMBER PRIMARY KEY,
@@ -31,7 +31,7 @@ CREATE TABLE ConfigurationHistory (
     ChangeDetails VARCHAR2(500),
     FOREIGN KEY (ServerConfigID) REFERENCES ServerConfigurations(ServerConfigID),
     FOREIGN KEY (ChangedBy) REFERENCES Users(UserID)
-);
+); -- issue inserting currently
 
 CREATE TABLE AlertDefinitions (
     AlertDefID NUMBER PRIMARY KEY,
@@ -55,7 +55,7 @@ CREATE TABLE AlertsConfig (
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID),
     FOREIGN KEY (AlertDefID) REFERENCES AlertDefinitions(AlertDefID),
     FOREIGN KEY (CreatedBy) REFERENCES Users(UserID)
-);
+); -- issue inserting currently
 
 CREATE TABLE Alerts (
     AlertLogID NUMBER PRIMARY KEY,
@@ -67,4 +67,4 @@ CREATE TABLE Alerts (
     AcknowledgedTime DATE,
     FOREIGN KEY (AlertID) REFERENCES AlertsConfig(AlertID),
     FOREIGN KEY (AcknowledgedBy) REFERENCES Users(UserID)
-);
+); -- issue inserting currently

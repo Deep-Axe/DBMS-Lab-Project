@@ -20,7 +20,7 @@ CREATE TABLE AutomationScripts (
     FOREIGN KEY (TaskTypeID) REFERENCES TaskTypes(TaskTypeID),
     FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
     FOREIGN KEY (ModifiedBy) REFERENCES Users(UserID)
-);
+); -- not everything done
 
 CREATE TABLE AutomationLogs (
     TaskID NUMBER PRIMARY KEY,
@@ -35,7 +35,7 @@ CREATE TABLE AutomationLogs (
     FOREIGN KEY (ScriptID) REFERENCES AutomationScripts(ScriptID),
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID),
     FOREIGN KEY (ExecutedBy) REFERENCES Users(UserID)
-);
+); -- not able to insert
 
 CREATE TABLE UserAccessLogs (
     LogID NUMBER PRIMARY KEY,
@@ -50,7 +50,7 @@ CREATE TABLE UserAccessLogs (
     FailureReason VARCHAR2(200),
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ServerID) REFERENCES Servers(ServerID)
-);
+); -- not able to insert
 
 CREATE TABLE SuspiciousActivity (
     AlertID NUMBER PRIMARY KEY,
@@ -66,4 +66,4 @@ CREATE TABLE SuspiciousActivity (
     ReviewDate DATE,
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (ReviewedBy) REFERENCES Users(UserID)
-);
+); -- single row inserted
